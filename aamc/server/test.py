@@ -1,4 +1,4 @@
-# Main python script that crawls AAMC page and saves verification data to Firebase
+# Script that checks to see if Firebase works
 
 import firebase_admin
 from firebase_admin import credentials, firestore

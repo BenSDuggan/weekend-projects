@@ -1,0 +1,49 @@
+<html>
+<head>
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+</head>
+<body>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	https://firebase.google.com/docs/web/setup#config-web-app -->
+
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyAWxsW3bgG2sJyqgLdXgDMrRU0Mqymrzck",
+			authDomain: "aamc-verification.firebaseapp.com",
+			databaseURL: "https://aamc-verification.firebaseio.com",
+			projectId: "aamc-verification",
+			storageBucket: "aamc-verification.appspot.com",
+			messagingSenderId: "554096779220",
+			appId: "1:554096779220:web:13326c0d0db22c8f"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+
+		var db = firebase.firestore();
+
+		// How to write - Shouldn't be allowed on web
+		console.log("Writing data shouldn't work:")
+		db.collection("verification").doc('test').set({
+			first: "Ada",
+			last: "Lovelace",
+			born: 1815
+		})
+		.then(function(docRef) {
+			console.log("Just wrote ", docRef.id, " to the database.  This shouldn't be allowed!!");
+		})
+		.catch(function(error) {
+			console.error("Couldn't write data to the database (or some other error occured).  This is probably a good thing!");
+		});
+
+		db.collection("verification").get().then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+				console.log(`${doc.id} => ${doc.data()}`);
+			});
+		});
+	</script>
+
+</body>
+
+</html>
