@@ -23,7 +23,6 @@ service cloud.firestore {
 }
 ```
 
-
 ### Server
 
 The packages required are `firebase-admin`.
@@ -35,9 +34,17 @@ sudo pip install firebase-admin
 
 Test the code by running `test.py` in the server file.
 
-## Client
+### Client
 
 Not much needs to be done to set the client up.  Simply test it by opening `test.html`, in the client folder, and ensure you see data in the console.
 
 
+## Deploy
 
+### Server
+
+The best way to deploy the client is on a linux device (like a Raspberry Pi) and set up a cron job to run the code at a set interval.  When the script is ran it finds the date for the `verification`, `transcript` and `change` fields, saves them locally in a csv and saves them to the database.
+
+### Client
+
+To deploy the web code simply include `main.html` on a website.  Mine is deployed on my personal website [here](bensduggan.com/pages/aamc-verification-status/)
