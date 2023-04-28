@@ -1,0 +1,1 @@
+Small web page used to record the time a fly died after exposer to ETOH and generate a string that R can use to interpret the data.
