@@ -1,1 +1,10 @@
+# Database
 *.db
+*.db-shm
+*.db-wal
+
+# Messages
+messages.csv
+
+# Images
+output/
